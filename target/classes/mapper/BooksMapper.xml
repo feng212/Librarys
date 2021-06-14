@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.library.mapper.BooksMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.library.entity.Books">
+        <id column="book_id" property="bookId" />
+        <result column="book_name" property="bookName" />
+        <result column="book_author" property="bookAuthor" />
+        <result column="press" property="press" />
+        <result column="publication_time" property="publicationTime" />
+        <result column="book_brief" property="bookBrief" />
+        <result column="type_id" property="typeId" />
+        <result column="create_time" property="createTime" />
+        <result column="book_img" property="bookImg" />
+        <result column="price" property="price" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        book_id, book_name, book_author, press, publication_time, book_brief, type_id, create_time, book_img, price
+    </sql>
+
+<!--    <insert id="addBook" parameterType="Books">-->
+<!--        insert into books(book_id, book_name, book_author, press, publication_time, book_brief, type_id, create_time, book_img, price)-->
+<!--            values ()-->
+<!--    </insert>-->
+
+<!--    <delete id="deleteBook" parameterType="int">-->
+<!--        delete-->
+<!--        from books where book_id=#{bookId}-->
+<!--        where;-->
+<!--    </delete>-->
+
+<!--    <update id="updateBook" parameterType="Books">-->
+<!--        update books set book_name=#{bookName}  where book_id=#{bookId}-->
+<!--    </update>-->
+
+<!--    <select id="bookById" resultType="Books">-->
+<!--        select * from books where book_id=#{bookId}-->
+<!--    </select>-->
+</mapper>
