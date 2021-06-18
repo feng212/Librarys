@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.library.mapper.BookDamageMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.library.entity.BookDamage">
+        <id column="damage_id" property="damageId" />
+        <result column="book_id" property="bookId" />
+        <result column="damage_time" property="damageTime" />
+        <result column="damage_reason" property="damageReason" />
+        <result column="damage_results" property="damageResults" />
+        <result column="number" property="number" />
+        <result column="price" property="price" />
+        <result column="is_solutions" property="isSolutions" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        damage_id, book_id, damage_time, damage_reason, damage_results, number, price, is_solutions
+    </sql>
+
+</mapper>

@@ -86,12 +86,6 @@ public class BooksModel implements Serializable {
     private String bookState;
 
 
-    public void setBookState(String bookState) {
-        if ("0".equals(state))
-            this.bookState = "未借出";
-        else
-            this.bookState = "已借出";
-    }
 
     private String typeName;
 }

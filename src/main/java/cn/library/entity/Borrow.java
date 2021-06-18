@@ -49,13 +49,13 @@ public class Borrow implements Serializable {
     /**
      * 借阅时间
      */
-    @JsonFormat(pattern = "yy-MM-dd hh:mm")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Shanghai")
     private Date borrowTime;
 
     /**
      * 还书时间
      */
-    @JsonFormat(pattern = "yy-MM-dd hh:mm")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Shanghai")
     private Date returnTime;
 
 

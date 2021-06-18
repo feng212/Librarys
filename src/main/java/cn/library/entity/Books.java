@@ -27,7 +27,6 @@ import java.util.Date;
 @Accessors(chain = true)
 public class Books implements Serializable {
 
-    private static final long serialVersionUID = 1L;
 
     /**
      * 图书编号
@@ -67,7 +66,7 @@ public class Books implements Serializable {
     /**
      * 录入时间
      */
-    @JsonFormat(pattern = "yy-MM-dd hh:mm")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Shanghai")
     private Date createTime;
 
 

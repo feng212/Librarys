@@ -2,6 +2,7 @@ package cn.library.service;
 
 import cn.library.entity.BookType;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.github.pagehelper.PageInfo;
 
 /**
  * <p>
@@ -12,5 +13,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2021-06-14
  */
 public interface BookTypeService  {
-
+    PageInfo<BookType> typeInfo(int pageIndex,int pageSize);
+    int typeInsert(BookType type);
 }

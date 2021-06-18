@@ -36,6 +36,11 @@ public class BooksServiceImpl implements BooksService {
     }
 
     @Override
+    public int bookIdRepeat(String bookId) {
+        return mapper.bookIdRepeat(bookId);
+    }
+
+    @Override
     public int updateBook(Books books) {
         return mapper.updateBook(books);
     }
@@ -49,6 +54,27 @@ public class BooksServiceImpl implements BooksService {
     public PageInfo<BooksModel> bookList(int pageIndex, int PageSize) {
         PageHelper.startPage(pageIndex, PageSize);
         List<BooksModel> list = mapper.list();
+        for (BooksModel m : list
+        ) {
+            if (0 == m.getState())
+                m.setBookState("未借出");
+            else
+                m.setBookState("已借出");
+        }
+        return new PageInfo<>(list);
+    }
+
+    @Override
+    public PageInfo<BooksModel> bookListAdmin(int pageIndex, int PageSize) {
+        PageHelper.startPage(pageIndex, PageSize);
+        List<BooksModel> list = mapper.listAdmin();
+        for (BooksModel m : list
+        ) {
+            if (0 == m.getState())
+                m.setBookState("未借出");
+            else
+                m.setBookState("已借出");
+        }
         return new PageInfo<>(list);
     }
 
@@ -60,5 +86,10 @@ public class BooksServiceImpl implements BooksService {
     @Override
     public int bookState(int state, String bookId) {
         return mapper.bookState(state, bookId);
+    }
+
+    @Override
+    public int deleteBook(String bookId) {
+        return mapper.deleteBook(bookId);
     }
 }

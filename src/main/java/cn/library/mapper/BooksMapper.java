@@ -2,9 +2,7 @@ package cn.library.mapper;
 
 import cn.library.entity.Books;
 import cn.library.model.BooksModel;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -24,10 +22,14 @@ public interface BooksMapper {
             "#{bookBrief},#{typeId},#{createTime},#{price})")
     int addBook(Books books);
 
+    @Select("select count(*)bsd from books where book_id=#{bookId}")
+    int bookIdRepeat(@Param("bookId") String bookId);
+
     // int deleteBook(int bookId);
 
     @Update("update books\n" +
-            "set book_author=#{bookAuthor},\n" +
+            "set book_name=#{bookName}," +
+            "book_author=#{bookAuthor},\n" +
             "    book_brief=#{bookBrief},\n" +
             "    press=#{press},\n" +
             "    publication_time=#{publicationTime},\n" +
@@ -36,14 +38,21 @@ public interface BooksMapper {
             "where book_id = #{bookId}")
     int updateBook(Books books);
 
+    @Delete("delete from books where book_id=#{bookId}")
+    int deleteBook(@Param("bookId") String bookId);
+
     @Select("select * from books left join book_type bt on books.type_id = bt.type_id where book_id =#{bookId}")
     BooksModel bookById(String bookId);
 
     @Select("select * from books left join book_type bt on books.type_id = bt.type_id where state=0 order by create_time")
     List<BooksModel> list();
 
+    @Select("select * from books left join book_type bt on books.type_id = bt.type_id  order by create_time")
+    List<BooksModel> listAdmin();
+
+
     @Update("update books set state=#{state} where book_id=#{bookId}")
-    int bookState(int state,String bookId);
+    int bookState(@Param("state") int state, @Param("bookId") String bookId);
 
 
 }

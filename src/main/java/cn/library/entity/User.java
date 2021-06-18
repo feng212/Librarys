@@ -48,7 +48,7 @@ public class User implements Serializable {
     /**
      * 创建时间
      */
-    @JsonFormat(pattern = "yy-MM-dd hh:mm")
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm")
     private Date createTime;
 
     /**
@@ -70,6 +70,9 @@ public class User implements Serializable {
      * 是否管理员(0不是 1是)
      */
     private Integer isAdmin;
+
+
+    private String loginTime;
 
 
 }
